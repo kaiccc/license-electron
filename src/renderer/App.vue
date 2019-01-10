@@ -12,4 +12,5 @@
 
 <style>
   /* CSS */
+  @import "~iview/dist/styles/iview.css";
 </style>
