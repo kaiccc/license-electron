@@ -1,8 +1,8 @@
 {
-  "name": "license-electron",
+  "name": "license",
   "version": "0.0.1",
   "author": "kai <xiaokaic@qq.com>",
-  "description": "An electron-vue project",
+  "description": "license",
   "license": null,
   "main": "./dist/electron/main.js",
   "scripts": {
@@ -22,7 +22,7 @@
     "postinstall": "npm run lint:fix"
   },
   "build": {
-    "productName": "license-electron",
+    "productName": "授权工具",
     "appId": "top.kaiccc.license",
     "directories": {
       "output": "build"
@@ -49,15 +49,17 @@
       "icon": "build/icons/icon.icns"
     },
     "win": {
-      "icon": "build/icons/icon.ico"
+      "icon": "build/icons/icon.png"
     },
     "linux": {
       "icon": "build/icons"
     }
   },
   "dependencies": {
-    "vue": "^2.5.16",
     "axios": "^0.18.0",
+    "iview": "^3.2.1",
+    "js-md5": "^0.7.3",
+    "vue": "^2.5.16",
     "vue-electron": "^1.0.6",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1",

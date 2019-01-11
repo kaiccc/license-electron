@@ -1,25 +1,57 @@
 <template>
-    <Row>
-      <Col span="3">PT-License 激活工具</Col>
-      <Col span="3">col-12</Col>
-      <Input v-model="value" placeholder="Enter something..." style="width: 300px" />
-    </Row>
-  <Tabs value="name1">
-    <TabPane label="标签一" name="name1">标签一的内容</TabPane>
-    <TabPane label="标签二" name="name2">标签二的内容</TabPane>
-    <TabPane label="标签三" name="name3">标签三的内容</TabPane>
-  </Tabs>
+    <div style="margin: 20px; text-align: center">
+        <Row>
+            <Col span="24">
+                <h2>PowerTool - 授权工具</h2>
+            </Col>
+        </Row>
+        <Row style="margin-top: 20px">
+            <Col span="6" ><h3 >机器码：</h3></Col>
+            <Col span="18">
+                <Input v-model="hostCode" placeholder="请输入机器码" />
+                <!--//size="small"-->
+            </Col>
+        </Row>
+
+        <Row style="margin-top: 20px">
+            <Col span="6">
+                <h3>激活码：</h3>
+            </Col>
+            <Col span="18" style="text-align: left">
+                <h3>{{ license }}</h3>
+            </Col>
+        </Row>
+        <Divider/>
+        <Row style="margin-top: 10px">
+            <Col span="6" offset="9">
+                <Button type="success" @click="generate">授权</Button>
+            </Col>
+        </Row>
+    </div>
 </template>
 
 <script>
+  import md5 from 'js-md5'
   export default {
     name: 'main-page',
     data () {
       return {
-        value: 'ssssss'
+        hostCode: '',
+        license: ''
       }
     },
     methods: {
+      generate () {
+        if (this.hostCode === '') {
+          this.license = '请输入机器码'
+          return
+        }
+        const hostCode = this.hostCode.trim().replace(/-/g, '').toUpperCase()
+        const head = hostCode.substring(0, 4)
+        const end = hostCode.substring(hostCode.length - 8)
+        const md5Str = md5(end + head).substring(0, 16).toUpperCase()
+        this.license = md5Str.substring(0, 4) + '-' + md5Str.substring(4, 8) + '-' + md5Str.substring(md5Str.length - 8)
+      }
     }
   }
 </script>

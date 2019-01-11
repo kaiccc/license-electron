@@ -6,11 +6,9 @@
 
 <script>
   export default {
-    name: 'license-electron'
+    name: '授权工具'
   }
 </script>
 
 <style>
-  /* CSS */
-  @import "~iview/dist/styles/iview.css";
 </style>
