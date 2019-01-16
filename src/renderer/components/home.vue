@@ -18,7 +18,7 @@
                 <h3>激活码：</h3>
             </Col>
             <Col span="18" style="text-align: left">
-                <h3>{{ license }}</h3>
+                <Input v-model="license" placeholder="" />
             </Col>
         </Row>
         <Divider/>
