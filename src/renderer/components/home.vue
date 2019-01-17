@@ -47,7 +47,7 @@
           return
         }
         const hostCode = this.hostCode.trim().replace(/-/g, '').toUpperCase()
-        const head = hostCode.substring(0, 4)
+        const head = hostCode.substring(4, 8)
         const end = hostCode.substring(hostCode.length - 8)
         const md5Str = md5(end + head).substring(0, 16).toUpperCase()
         this.license = md5Str.substring(0, 4) + '-' + md5Str.substring(4, 8) + '-' + md5Str.substring(md5Str.length - 8)
